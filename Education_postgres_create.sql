@@ -9,10 +9,10 @@ CREATE TABLE "Student" (
 
 
 
-CREATE TABLE "Theme" (
+CREATE TABLE "Topic" (
 	"id" serial NOT NULL,
 	"name" varchar NOT NULL,
-	CONSTRAINT Theme_pk PRIMARY KEY ("id")
+	CONSTRAINT Topic_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
@@ -32,7 +32,7 @@ CREATE TABLE "Assessment" (
 CREATE TABLE "Summary_table" (
 	"id" serial NOT NULL,
 	"student_id" bigint NOT NULL,
-	"theme_id" bigint NOT NULL,
+	"topic_id" bigint NOT NULL,
 	"assessment_id" bigint NOT NULL,
 	"value" varchar NOT NULL,
 	CONSTRAINT Summary_table_pk PRIMARY KEY ("id")
@@ -46,6 +46,6 @@ CREATE TABLE "Summary_table" (
 
 
 ALTER TABLE "Summary_table" ADD CONSTRAINT "Summary_table_fk0" FOREIGN KEY ("student_id") REFERENCES "Student"("id");
-ALTER TABLE "Summary_table" ADD CONSTRAINT "Summary_table_fk1" FOREIGN KEY ("theme_id") REFERENCES "Theme"("id");
+ALTER TABLE "Summary_table" ADD CONSTRAINT "Summary_table_fk1" FOREIGN KEY ("topic_id") REFERENCES "Topic"("id");
 ALTER TABLE "Summary_table" ADD CONSTRAINT "Summary_table_fk2" FOREIGN KEY ("assessment_id") REFERENCES "Assessment"("id");
 
