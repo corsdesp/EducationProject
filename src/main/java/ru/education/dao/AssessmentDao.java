@@ -1,6 +1,6 @@
 package ru.education.dao;
 
-import ru.education.dto.AssessmentDTO;
+import ru.education.entities.Assessment;
 
-public interface AssessmentDao extends BaseDao<AssessmentDTO> {
+public interface AssessmentDao extends BaseDao<Assessment> {
 }

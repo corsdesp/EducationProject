@@ -1,13 +1,13 @@
-package ru.education.dto;
+package ru.education.entities;
 
-public class TopicDTO {
+public class Topic {
     private long id;
     private String name;
 
-    public TopicDTO() {
+    public Topic() {
     }
 
-    public TopicDTO(long id, String name) {
+    public Topic(long id, String name) {
         this.id = id;
         this.name = name;
     }

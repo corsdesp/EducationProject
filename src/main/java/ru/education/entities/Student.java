@@ -1,14 +1,14 @@
-package ru.education.dto;
+package ru.education.entities;
 
-public class StudentDTO {
+public class Student {
     private long id;
     private String firstName;
     private String lastName;
 
-    public StudentDTO() {
+    public Student() {
     }
 
-    public StudentDTO(long id, String firstName, String lastName) {
+    public Student(long id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

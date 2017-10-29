@@ -1,16 +1,16 @@
-package ru.education.dto;
+package ru.education.entities;
 
-public class SummaryTableDTO {
+public class SummaryTable {
     private long id;
     private long studentId;
     private long assessmentId;
     private long topicId;
     private String value;
 
-    public SummaryTableDTO() {
+    public SummaryTable() {
     }
 
-    public SummaryTableDTO(long id, long studentId, long assessmentId, long topicId, String value) {
+    public SummaryTable(long id, long studentId, long assessmentId, long topicId, String value) {
         this.id = id;
         this.studentId = studentId;
         this.assessmentId = assessmentId;

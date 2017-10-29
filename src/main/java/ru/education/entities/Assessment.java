@@ -1,13 +1,13 @@
-package ru.education.dto;
+package ru.education.entities;
 
-public class AssessmentDTO {
+public class Assessment {
     private long id;
     private String name;
 
-    public AssessmentDTO() {
+    public Assessment() {
     }
 
-    public AssessmentDTO(long id, String name) {
+    public Assessment(long id, String name) {
         this.id = id;
         this.name = name;
     }
