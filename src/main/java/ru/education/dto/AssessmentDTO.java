@@ -4,6 +4,9 @@ public class AssessmentDTO {
     private long id;
     private String name;
 
+    public AssessmentDTO() {
+    }
+
     public AssessmentDTO(long id, String name) {
         this.id = id;
         this.name = name;

@@ -4,6 +4,9 @@ public class TopicDTO {
     private long id;
     private String name;
 
+    public TopicDTO() {
+    }
+
     public TopicDTO(long id, String name) {
         this.id = id;
         this.name = name;

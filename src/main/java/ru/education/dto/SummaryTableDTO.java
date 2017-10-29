@@ -7,6 +7,9 @@ public class SummaryTableDTO {
     private long topicId;
     private String value;
 
+    public SummaryTableDTO() {
+    }
+
     public SummaryTableDTO(long id, long studentId, long assessmentId, long topicId, String value) {
         this.id = id;
         this.studentId = studentId;
