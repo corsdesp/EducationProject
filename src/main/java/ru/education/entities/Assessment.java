@@ -12,6 +12,10 @@ public class Assessment {
         this.name = name;
     }
 
+    public Assessment(String name) {
+        this.name = name;
+    }
+
     public long getId() {
         return id;
     }

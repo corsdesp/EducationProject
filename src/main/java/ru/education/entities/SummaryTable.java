@@ -18,6 +18,13 @@ public class SummaryTable {
         this.value = value;
     }
 
+    public SummaryTable(long studentId, long assessmentId, long topicId, String value) {
+        this.studentId = studentId;
+        this.assessmentId = assessmentId;
+        this.topicId = topicId;
+        this.value = value;
+    }
+
     public long getId() {
         return id;
     }

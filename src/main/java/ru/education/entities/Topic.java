@@ -12,6 +12,10 @@ public class Topic {
         this.name = name;
     }
 
+    public Topic(String name) {
+        this.name = name;
+    }
+
     public long getId() {
         return id;
     }
