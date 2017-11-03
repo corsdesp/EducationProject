@@ -1,6 +1,6 @@
 package ru.education.entities;
 
-public class Assessment {
+public class Assessment implements BaseEntity{
     private long id;
     private String name;
 
@@ -30,5 +30,13 @@ public class Assessment {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Assessment{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
