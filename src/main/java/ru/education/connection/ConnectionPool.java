@@ -6,9 +6,9 @@ import javax.sql.DataSource;
 
 public class ConnectionPool {
     private static final String DRIVER = "org.postgresql.Driver";
-    private static final String URL = "";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "postgre";
+    private static final String URL = "jdbc:postgresql://localhost:5432/edu";
+    private static final String USERNAME = "postgres";
+    private static final String PASSWORD = "root";
 
     public static DataSource setUp() throws ClassNotFoundException {
         BasicDataSource basicDataSource = new BasicDataSource();
