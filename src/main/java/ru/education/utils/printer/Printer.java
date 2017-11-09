@@ -1,4 +1,4 @@
-package ru.education.printer;
+package ru.education.utils.printer;
 
 import ru.education.entities.BaseEntity;
 

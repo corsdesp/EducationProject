@@ -2,8 +2,8 @@ package ru.education;
 
 import ru.education.connection.QueryExecution;
 import ru.education.entities.BaseEntity;
-import ru.education.printer.ConsolePrinter;
-import ru.education.printer.Printer;
+import ru.education.utils.printer.ConsolePrinter;
+import ru.education.utils.printer.Printer;
 
 import java.sql.SQLException;
 import java.util.List;
