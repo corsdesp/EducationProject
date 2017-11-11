@@ -3,19 +3,16 @@ package ru.education.connection;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
+import java.util.Properties;
 
 public class ConnectionPool {
-    private static final String DRIVER = "org.postgresql.Driver";
-    private static final String URL = "jdbc:postgresql://localhost:5432/edu";
-    private static final String USERNAME = "postgres";
-    private static final String PASSWORD = "root";
 
-    public static DataSource setUp() throws ClassNotFoundException {
+    public static DataSource getDataSource(Properties properties) throws ClassNotFoundException {
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setDriverClassName(DRIVER);
-        basicDataSource.setUrl(URL);
-        basicDataSource.setUsername(USERNAME);
-        basicDataSource.setPassword(PASSWORD);
+        basicDataSource.setDriverClassName(properties.getProperty("driver"));
+        basicDataSource.setUrl(properties.getProperty("url"));
+        basicDataSource.setUsername(properties.getProperty("username"));
+        basicDataSource.setPassword(properties.getProperty("password"));
 
         basicDataSource.setMinIdle(5);
         basicDataSource.setMaxIdle(20);
