@@ -12,42 +12,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QueryExecution {
+    private DataSource ds;
+
+    public QueryExecution(DataSource ds) {
+        this.ds = ds;
+    }
 
     public List<BaseEntity> result() {
-        Connection connection = null;
-        PreparedStatement stmt = null;
-        ResultSet resultSet = null;
         List<BaseEntity> baseEntities = new ArrayList<>();
 
+        ResultSet resultSet = getResultSet();
         try {
-            DataSource ds = ConnectionPool.setUp();
-            connection = ds.getConnection();
-            stmt = connection.prepareStatement("SELECT * FROM Student");
-            resultSet = stmt.executeQuery();
-
-            while (resultSet.next()) {
-                baseEntities.add(new Student(resultSet.getLong("id"),
+            while (resultSet != null && resultSet.next()) {
+                baseEntities.add(new Student(
+                        resultSet.getLong("id"),
                         resultSet.getString("first_name"),
                         resultSet.getString("last_name")));
             }
-            return baseEntities;
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        } catch (SQLException e1) {
+            e1.printStackTrace();
         }
         return baseEntities;
+    }
+
+    private ResultSet getResultSet() {
+        try (Connection connection = ds.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Student");
+             ResultSet resultSet = stmt.executeQuery()) {
+
+            return resultSet;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
