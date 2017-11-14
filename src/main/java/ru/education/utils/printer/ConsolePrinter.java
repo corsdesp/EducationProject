@@ -1,12 +1,13 @@
 package ru.education.utils.printer;
 
-import ru.education.entities.BaseEntity;
+import ru.education.entities.Student;
 
 import java.util.List;
 
-public class ConsolePrinter implements Printer {
+public class ConsolePrinter implements Printer<Student> {
 
-    public void print(List<BaseEntity> entities) {
+    @Override
+    public void print(List<Student> entities) {
         entities.stream().map(Object::toString).forEach(System.out::println);
     }
 }

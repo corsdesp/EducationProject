@@ -1,10 +1,8 @@
 package ru.education.utils.printer;
 
-import ru.education.entities.BaseEntity;
-
 import java.util.List;
 
-public interface Printer {
+public interface Printer<T> {
 
-    void print(List<BaseEntity> entities);
+    void print(List<T> entities);
 }
