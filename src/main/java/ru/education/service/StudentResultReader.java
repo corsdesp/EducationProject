@@ -14,7 +14,7 @@ public class StudentResultReader implements ResultReader<Student> {
                     resultSet.getString("first_name"),
                     resultSet.getString("last_name"));
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
         return null;
     }

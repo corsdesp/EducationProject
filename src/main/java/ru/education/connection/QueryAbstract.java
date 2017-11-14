@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public abstract class QueryAbstract {
-    DataSource ds;
+    private DataSource ds;
 
     public QueryAbstract(DataSource ds) {
         this.ds = ds;
@@ -31,7 +31,7 @@ public abstract class QueryAbstract {
         try {
             Connection connection = ds.getConnection();
             PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.executeQuery();
+            stmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
