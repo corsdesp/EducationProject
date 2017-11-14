@@ -1,8 +1,9 @@
 package ru.education;
 
 import ru.education.connection.ConnectionPool;
-import ru.education.connection.QueryExecution;
-import ru.education.entities.BaseEntity;
+import ru.education.connection.PropertyInitializer;
+import ru.education.entities.Student;
+import ru.education.service.StudentImpl;
 import ru.education.utils.printer.ConsolePrinter;
 import ru.education.utils.printer.Printer;
 
@@ -15,14 +16,16 @@ public class App {
     private static final String PROPERTY = "postgreSql.properties";
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Properties properties = new Properties();
-        properties.load(App.class.getResourceAsStream(PROPERTY));
-        DataSource dataSource = ConnectionPool.getDataSource(properties);
+        PropertyInitializer propertyInitializer = new PropertyInitializer();
+        Properties prop = propertyInitializer.initialize(PROPERTY);
 
-        QueryExecution queryExecution = new QueryExecution(dataSource);
-        List<BaseEntity> baseEntities = queryExecution.result();
+        DataSource dataSource = ConnectionPool.getDataSource(prop);
 
-        Printer printer = new ConsolePrinter();
-        printer.print(baseEntities);
+        StudentImpl studentService = new StudentImpl();
+        studentService.setDataSource(dataSource);
+        List<Student> students = studentService.findAll();
+
+        Printer<Student> printer = new ConsolePrinter();
+        printer.print(students);
     }
 }
