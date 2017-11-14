@@ -26,4 +26,14 @@ public abstract class QueryAbstract {
         }
         return null;
     }
+
+    public void executeQuery(String query) {
+        try {
+            Connection connection = ds.getConnection();
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

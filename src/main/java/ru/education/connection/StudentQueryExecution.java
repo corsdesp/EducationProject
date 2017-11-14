@@ -45,7 +45,7 @@ public class StudentQueryExecution extends QueryAbstract implements QueryInterfa
     }
 
     @Override
-    public Student delete(String query) {
-
+    public void simpleQuery(String query) {
+        executeQuery(query);
     }
 }

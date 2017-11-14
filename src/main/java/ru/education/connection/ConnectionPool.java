@@ -6,9 +6,13 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 public class ConnectionPool {
+    private static BasicDataSource basicDataSource;
+
+    static {
+        initialize();
+    }
 
     public static DataSource getDataSource(Properties properties) throws ClassNotFoundException {
-        BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setDriverClassName(properties.getProperty("driver"));
         basicDataSource.setUrl(properties.getProperty("url"));
         basicDataSource.setUsername(properties.getProperty("username"));
@@ -19,5 +23,9 @@ public class ConnectionPool {
         basicDataSource.setMaxOpenPreparedStatements(180);
 
         return basicDataSource;
+    }
+
+    private static void initialize() {
+        basicDataSource = new BasicDataSource();
     }
 }

@@ -10,5 +10,5 @@ public interface QueryInterface<T extends BaseEntity> {
 
     T oneResult (String query, ResultReader<T> resultReader);
 
-    T delete(String query);
+    void simpleQuery(String query);
 }

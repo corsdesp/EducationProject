@@ -29,13 +29,14 @@ public class StudentImpl implements StudentDao {
     }
 
     @Override
-    public Student remove(long id) {
+    public void remove(long id) {
         String query = "DELETE FROM STUDENT WHERE id=" + id;
-        return null;
+        queryExecution.simpleQuery(query);
     }
 
     @Override
-    public Student save(Student val) {
-        return null;
+    public void save(Student val) {
+        String query = "INSERT INTO STUDENT VALUES (" + val.getId() + ", " + val.getFirstName() + ", " + val.getLastName() + ")";
+        queryExecution.simpleQuery(query);
     }
 }
