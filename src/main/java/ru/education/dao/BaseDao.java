@@ -8,7 +8,7 @@ public interface BaseDao<T> {
 
     T findOne(long id);
 
-    T remove(long id);
+    void remove(long id);
 
-    T save(T val);
+    void save(T val);
 }

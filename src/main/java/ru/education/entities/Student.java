@@ -1,6 +1,6 @@
 package ru.education.entities;
 
-public class Student {
+public class Student implements BaseEntity{
     private long id;
     private String firstName;
     private String lastName;
@@ -41,5 +41,14 @@ public class Student {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

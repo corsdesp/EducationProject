@@ -1,6 +1,6 @@
 package ru.education.entities;
 
-public class SummaryTable {
+public class SummaryTable implements BaseEntity{
     private long id;
     private long studentId;
     private long assessmentId;
@@ -63,5 +63,16 @@ public class SummaryTable {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "SummaryTable{" +
+                "id=" + id +
+                ", studentId=" + studentId +
+                ", assessmentId=" + assessmentId +
+                ", topicId=" + topicId +
+                ", value='" + value + '\'' +
+                '}';
     }
 }
