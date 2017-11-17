@@ -13,8 +13,14 @@
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Education Project</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Registration</a>
+            </div>
+        </div>
     </nav>
 </div>
 <div class="container">
@@ -43,15 +49,15 @@
 </div>
 
 <div class="container">
-    <form>
+    <form method="post" action="#">
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="validationDefault01">First name</label>
-                <input type="text" class="form-control" id="validationDefault01" placeholder="First name" required>
+                <input type="text" class="form-control" id="validationDefault01" placeholder="First name" name="first" required>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="validationDefault02">Last name</label>
-                <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" required>
+                <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" name="second" required>
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Submit form</button>
