@@ -9,11 +9,9 @@ import java.util.List;
 
 public class StudentImpl implements StudentDao {
     private StudentQueryExecution queryExecution;
-    private DataSource dataSource;
 
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-        this.queryExecution= new StudentQueryExecution(dataSource);
+    public StudentImpl(DataSource dataSource) {
+        this.queryExecution = new StudentQueryExecution(dataSource);
     }
 
     @Override
