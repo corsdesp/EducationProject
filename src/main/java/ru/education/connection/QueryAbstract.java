@@ -36,4 +36,8 @@ public abstract class QueryAbstract {
             e.printStackTrace();
         }
     }
+
+    public void simpleQuery(String query) {
+        executeQuery(query);
+    }
 }
