@@ -36,7 +36,10 @@ public class StudentImpl implements StudentDao {
 
     @Override
     public void save(Student val) {
-        String query = "INSERT INTO STUDENT VALUES (" + val.getId() + ", " + val.getFirstName() + ", " + val.getLastName() + ")";
+        String query = "INSERT INTO STUDENT VALUES (" +
+                val.getId() + ", '" +
+                val.getFirstName() + "', '" +
+                val.getLastName() + "')";
         queryExecution.simpleQuery(query);
     }
 }
