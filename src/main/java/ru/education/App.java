@@ -21,8 +21,7 @@ public class App {
 
         DataSource dataSource = ConnectionPool.getDataSource(prop);
 
-        StudentImpl studentService = new StudentImpl();
-        studentService.setDataSource(dataSource);
+        StudentImpl studentService = new StudentImpl(dataSource);
         List<Student> students = studentService.findAll();
 
         Printer<Student> printer = new ConsolePrinter();

@@ -14,17 +14,17 @@
 <body>
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Education Project</a>
+        <a class="navbar-brand" href="./">Education Project</a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Registration</a>
+                <a class="nav-item nav-link" href="./">Home</a>
+                <a class="nav-item nav-link active" href="#">Topic<span class="sr-only">(current)</span></a>
             </div>
         </div>
     </nav>
 </div>
 <div class="container">
-    <h1 class="text-center">Список ${stud}</h1>
+    <h1 class="text-center">Список тем</h1>
 </div>
 
 <div class="container">
@@ -32,16 +32,14 @@
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">Name</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${list}" var="item" varStatus="status">
             <tr>
                 <th scope="row">${status.count}</th>
-                <td>${item.getFirstName()}</td>
-                <td>${item.getLastName()}</td>
+                <td>${item.getName()}</td>
             </tr>
         </c:forEach>
         </tbody>
@@ -52,12 +50,9 @@
     <form method="post" action="#">
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="validationDefault01">First name</label>
-                <input type="text" class="form-control" id="validationDefault01" placeholder="First name" name="first" required>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="validationDefault02">Last name</label>
-                <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" name="second" required>
+                <label for="validationDefault01">Topic Name</label>
+                <input type="text" class="form-control" id="validationDefault01" placeholder="Name" name="name"
+                       required>
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Submit form</button>

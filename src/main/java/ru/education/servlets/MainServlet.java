@@ -1,4 +1,4 @@
-package ru.education;
+package ru.education.servlets;
 
 import ru.education.connection.ConnectionPool;
 import ru.education.connection.PropertyInitializer;
@@ -43,7 +43,7 @@ public class MainServlet extends HttpServlet {
         resp.setContentType("text/html");
         req.setAttribute("stud", "пользователей");
         req.setAttribute("list", studentList);
-        req.getRequestDispatcher("page.jsp").forward(req, resp);
+        req.getRequestDispatcher("student_page.jsp").forward(req, resp);
     }
 
     @Override
@@ -59,7 +59,6 @@ public class MainServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        studentService = new StudentImpl();
-        studentService.setDataSource(dataSource);
+        studentService = new StudentImpl(dataSource);
     }
 }
