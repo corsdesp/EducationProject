@@ -9,6 +9,4 @@ public interface QueryInterface<T extends BaseEntity> {
     List<T> result (String query, ResultReader<T> resultReader);
 
     T oneResult (String query, ResultReader<T> resultReader);
-
-    void simpleQuery(String query);
 }
