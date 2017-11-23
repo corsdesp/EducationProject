@@ -7,10 +7,10 @@ import ru.education.entities.Student;
 import javax.sql.DataSource;
 import java.util.List;
 
-public class StudentImpl implements StudentDao {
+public class StudentDaoImpl implements StudentDao {
     private StudentQueryExecution queryExecution;
 
-    public StudentImpl(DataSource dataSource) {
+    public StudentDaoImpl(DataSource dataSource) {
         this.queryExecution = new StudentQueryExecution(dataSource);
     }
 

@@ -3,7 +3,7 @@ package ru.education;
 import ru.education.connection.ConnectionPool;
 import ru.education.connection.PropertyInitializer;
 import ru.education.entities.Student;
-import ru.education.service.StudentImpl;
+import ru.education.service.StudentDaoImpl;
 import ru.education.utils.printer.ConsolePrinter;
 import ru.education.utils.printer.Printer;
 
@@ -21,7 +21,7 @@ public class App {
 
         DataSource dataSource = ConnectionPool.getDataSource(prop);
 
-        StudentImpl studentService = new StudentImpl(dataSource);
+        StudentDaoImpl studentService = new StudentDaoImpl(dataSource);
         List<Student> students = studentService.findAll();
 
         Printer<Student> printer = new ConsolePrinter();

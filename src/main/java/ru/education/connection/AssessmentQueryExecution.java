@@ -1,6 +1,6 @@
 package ru.education.connection;
 
-import ru.education.entities.Student;
+import ru.education.entities.Assessment;
 import ru.education.service.ResultReader;
 
 import javax.sql.DataSource;
@@ -9,29 +9,30 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentQueryExecution extends QueryAbstract implements QueryInterface<Student> {
+public class AssessmentQueryExecution extends QueryAbstract implements QueryInterface<Assessment> {
 
-    public StudentQueryExecution(DataSource ds) {
+    public AssessmentQueryExecution(DataSource ds) {
         super(ds);
     }
 
     @Override
-    public List<Student> result(String query, ResultReader<Student> resultReader) {
-        List<Student> students = new ArrayList<>();
+    public List<Assessment> result(String query, ResultReader<Assessment> resultReader) {
+        List<Assessment> assessments = new ArrayList<>();
 
         ResultSet resultSet = getResultSet(query);
+
         try {
             while (resultSet != null && resultSet.next()) {
-                students.add(resultReader.read(resultSet));
+                assessments.add(resultReader.read(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return students;
+        return assessments;
     }
 
     @Override
-    public Student oneResult(String query, ResultReader<Student> resultReader) {
+    public Assessment oneResult(String query, ResultReader<Assessment> resultReader) {
         ResultSet resultSet = getResultSet(query);
         if (resultSet != null) {
             try {
@@ -41,6 +42,6 @@ public class StudentQueryExecution extends QueryAbstract implements QueryInterfa
             }
             return resultReader.read(resultSet);
         }
-        return new Student();
+        return new Assessment();
     }
 }
