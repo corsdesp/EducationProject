@@ -28,24 +28,30 @@
 </div>
 
 <div class="container">
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${list}" var="item" varStatus="status">
+    <form method="post" action="#">
+        <table class="table">
+            <thead class="thead-dark">
             <tr>
-                <th scope="row">${status.count}</th>
-                <td>${item.getFirstName()}</td>
-                <td>${item.getLastName()}</td>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <c:forEach items="${list}" var="item" varStatus="status">
+                <tr>
+                    <th scope="row">${status.count}
+                        <button class="btn btn-warning"
+                                type="submit" value="${item.getId()}" name="del">DEL
+                        </button>
+                    </th>
+                    <td>${item.getFirstName()}</td>
+                    <td>${item.getLastName()}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </form>
 </div>
 
 <div class="container">
@@ -53,11 +59,13 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="validationDefault01">First name</label>
-                <input type="text" class="form-control" id="validationDefault01" placeholder="First name" name="first" required>
+                <input type="text" class="form-control" id="validationDefault01" placeholder="First name" name="first"
+                       required>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="validationDefault02">Last name</label>
-                <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" name="second" required>
+                <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" name="second"
+                       required>
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Submit form</button>

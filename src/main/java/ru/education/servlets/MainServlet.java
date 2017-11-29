@@ -26,7 +26,15 @@ public class MainServlet extends HttpServlet {
         String firstName = req.getParameter("first");
         String lastName = req.getParameter("second");
 
-        studentService.save(new Student(studentList.size() + 1, firstName, lastName));
+        if (firstName != null && lastName != null) {
+            studentService.save(new Student(studentList.size() + 1, firstName, lastName));
+        }
+
+        String id = req.getParameter("del");
+
+        if (id != null) {
+            studentService.remove(Long.parseLong(id));
+        }
 
         commonParam(req, resp);
     }
