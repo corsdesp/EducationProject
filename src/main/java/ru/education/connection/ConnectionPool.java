@@ -7,12 +7,20 @@ import java.util.Properties;
 
 public class ConnectionPool {
     private static BasicDataSource basicDataSource;
+    private static ConnectionPool instance;
 
-    static {
-        initialize();
+    private ConnectionPool() {
     }
 
-    public static DataSource getDataSource(Properties properties) throws ClassNotFoundException {
+    public static ConnectionPool getInstance() {
+        if (instance == null) {
+            basicDataSource = new BasicDataSource();
+            return new ConnectionPool();
+        }
+        return instance;
+    }
+
+    public DataSource generateDataSource(Properties properties) throws ClassNotFoundException {
         basicDataSource.setDriverClassName(properties.getProperty("driver"));
         basicDataSource.setUrl(properties.getProperty("url"));
         basicDataSource.setUsername(properties.getProperty("username"));
@@ -23,9 +31,5 @@ public class ConnectionPool {
         basicDataSource.setMaxOpenPreparedStatements(180);
 
         return basicDataSource;
-    }
-
-    private static void initialize() {
-        basicDataSource = new BasicDataSource();
     }
 }
