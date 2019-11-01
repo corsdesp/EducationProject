@@ -26,6 +26,8 @@ public class StudentQueryExecution extends QueryAbstract implements QueryInterfa
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeCon();
         }
         return students;
     }
@@ -38,6 +40,8 @@ public class StudentQueryExecution extends QueryAbstract implements QueryInterfa
                 resultSet.next();
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+                closeCon();
             }
             return resultReader.read(resultSet);
         }

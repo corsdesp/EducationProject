@@ -19,7 +19,7 @@ public class App {
         PropertyInitializer propertyInitializer = new PropertyInitializer();
         Properties prop = propertyInitializer.initialize(PROPERTY);
 
-        DataSource dataSource = ConnectionPool.getDataSource(prop);
+        DataSource dataSource = ConnectionPool.getInstance().generateDataSource(prop);
 
         StudentDaoImpl studentService = new StudentDaoImpl(dataSource);
         List<Student> students = studentService.findAll();
